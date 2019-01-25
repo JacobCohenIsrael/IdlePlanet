@@ -25,10 +25,22 @@ public class OrganismMenu : MonoBehaviour
 		var organismModel = new OrganismModel();
 		organismModel.baseDnaCost = 1;
 		organismModel.baseDnaGrowthRate = 2;
-		organismModel.organismName = OrganismsType.SingleCell.ToString();
+		organismModel.organismName = "Single Cell";
 		_organismModels.Add(OrganismsType.SingleCell, organismModel);
-		
-		foreach (var organism in _organismModels)
+
+        var tissueModel = new OrganismModel();
+        tissueModel.baseDnaCost = 256;
+        tissueModel.baseDnaGrowthRate = 64;
+        tissueModel.organismName = "Tissues";
+        _organismModels.Add(OrganismsType.Tissue, tissueModel);
+
+        var humanModel = new OrganismModel();
+        humanModel.baseDnaCost = 1024;
+        humanModel.baseDnaGrowthRate = 2048;
+        humanModel.organismName = "Human Being";
+        _organismModels.Add(OrganismsType.Human, humanModel);
+
+        foreach (var organism in _organismModels)
 		{
 			AddOrganismPanel(organism.Value);
 		}
@@ -46,5 +58,7 @@ public class OrganismModel
 
 public enum OrganismsType
 {
-	SingleCell
+	SingleCell,
+    Tissue,
+    Human
 }

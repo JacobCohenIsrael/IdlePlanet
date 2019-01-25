@@ -30,6 +30,7 @@ public class OrganismPanel : MonoBehaviour
 		if (_organismModel.baseDnaCost <= GameManager.Dna)
 		{
 			organismsAlive++;
+            GameManager.OrganismsAmount++;
 			GameManager.Dna -= _organismModel.baseDnaCost;
 			_organismModel.baseDnaCost *= 2;
 			requiredDnaText.text = _organismModel.baseDnaCost.ToString();

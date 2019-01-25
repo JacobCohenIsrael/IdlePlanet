@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject organismPanel;
 
+    [SerializeField]
+    private ParticleSystem particles;
+
     public static long Dna = 1;
+
+    public static long OrganismsAmount = 0;
     
     // Start is called before the first frame update
     protected void Start()
@@ -28,5 +33,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Initializing");
         Instantiate(menu, canvas.transform);
         Instantiate(organismMenu, canvas.transform);
+    }
+
+    protected void Update()
+    {
+        var emission = particles.emission;
+        emission.rateOverTime = OrganismsAmount;
     }
 }
