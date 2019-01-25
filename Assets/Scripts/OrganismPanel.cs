@@ -32,7 +32,7 @@ public class OrganismPanel : MonoBehaviour
 			organismsAlive++;
             GameManager.OrganismsAmount++;
 			GameManager.Dna -= _organismModel.baseDnaCost;
-			_organismModel.baseDnaCost *= 2;
+            _organismModel.baseDnaCost = (long)(_organismModel.baseDnaCost * 1.2);
 			requiredDnaText.text = _organismModel.baseDnaCost.ToString();
 		}
 
